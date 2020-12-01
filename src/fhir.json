@@ -1,0 +1,801 @@
+{
+	"resourceType": "Bundle",
+	"id": "832aec5d-dd22-467f-92e6-f115f2d80ac7",
+	"type": "collection",
+	"meta": {
+		"lastUpdated": "2020-10-20T06:16:16.852+00:00"
+	},
+	"entry": [{
+		"resource": {
+			"resourceType": "Observation",
+			"id": "832aec5d-dd22-467f-92e6-f115f2d80ac7",
+			"effectiveDateTime": "2020-10-20T06:16:16.854+00:00",
+			"status": "preliminary",
+			"subject": {
+				"reference": "Patient/7adb02a5-4afb-406e-91df-a8e4aa4a89d9"
+			},
+			"performer": [{
+				"reference": "Practitioner/chaone"
+			}],
+			"code": {
+				"coding": [{
+					"code": "424144002",
+					"display": "age",
+					"system": "http://snomed.info/sct"
+				}]
+			},
+			"valueQuantity": {
+				"unit": "days",
+				"value": "384"
+			}
+		}
+	}, {
+		"resource": {
+			"resourceType": "Observation",
+			"id": "832aec5d-dd22-467f-92e6-f115f2d80ac7",
+			"effectiveDateTime": "2020-10-20T06:16:16.855+00:00",
+			"status": "preliminary",
+			"subject": {
+				"reference": "Patient/7adb02a5-4afb-406e-91df-a8e4aa4a89d9"
+			},
+			"performer": [{
+				"reference": "Practitioner/chaone"
+			}],
+			"code": {
+				"coding": [{
+					"code": "284473002",
+					"display": "Mid upper arm circumference (MUAC)",
+					"system": "http://snomed.info/sct"
+				}]
+			},
+			"valueCodeableConcept": {
+				"coding": [{
+					"system": "http://hl7.org/fhir/metric-color"
+				}]
+			}
+		}
+	}, {
+		"resource": {
+			"resourceType": "MessageHeader",
+			"id": "28a5c914-e560-4d1b-92a8-41ef9360aef1",
+			"eventUri": "http://hl7.org/fhir/ValueSet/message-events",
+			"destination": [{
+				"name": "MOH VTS",
+				"software": "org.smartregister.chw.lmh",
+				"version": "1",
+				"endpoint": "org.smartregister.chw.activity.ChildProfileActivity"
+			}],
+			"source": [{
+				"name": "ThinkMD",
+				"endpoint": "https://thinkmd-v4-app-b-ona.herokuapp.com"
+			}]
+		}
+	}, {
+		"resource": {
+			"resourceType": "Encounter",
+			"id": "832aec5d-dd22-467f-92e6-f115f2d80ac7",
+			"status": "in-progress",
+			"identifier": [{
+				"system": "https://fhir.smartregister.org/encounterUuid",
+				"use": "usual",
+				"value": "0ddd6a94-1001-4e79-b049-fcad87662f92"
+			}, {
+				"system": "https://fhir.thinkmd.tech",
+				"value": "43c60af6-ab20-4d38-94df-c54a54632abc"
+			}],
+			"location": [{
+				"location": "402ecf03-af72-4c93-b099-e1ce327d815b"
+			}],
+			"participant": [{
+				"individual": "Practitioner/chaone"
+			}],
+			"subject": {
+				"reference": "Patient/7adb02a5-4afb-406e-91df-a8e4aa4a89d9"
+			},
+			"class": {
+				"system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+				"code": "HH",
+				"display": "home health"
+			}
+		}
+	}, {
+		"resource": {
+			"resourceType": "Condition",
+			"id": "malaria-832aec5d-dd22-467f-92e6-f115f2d80ac7",
+			"text": {
+				"status": "generated",
+				"div": "<div class='fhirCondition'><span>Condition</span> - <span>malaria</span> : <span>none</span></div>"
+			},
+			"severity": {
+				"coding": [{
+					"system": "http://snomed.info/sct",
+					"code": "none",
+					"display": "none"
+				}]
+			},
+			"clinicalStatus": {
+				"coding": [{
+					"system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+					"code": "active"
+				}]
+			},
+			"verificationStatus": {
+				"coding": [{
+					"system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+					"code": "unconfirmed"
+				}]
+			},
+			"code": {
+				"coding": [{
+					"system": "http://snomed.info/sct",
+					"code": "61462000",
+					"display": "malaria"
+				}]
+			},
+			"onsetDateTime": "2020-12-01T14:49:31.984Z",
+			"recordedDate": "2020-12-01T14:49:31.984Z",
+			"encounter": {
+				"reference": "Encounter/832aec5d-dd22-467f-92e6-f115f2d80ac7"
+			},
+			"subject": {
+				"reference": "Patient/7adb02a5-4afb-406e-91df-a8e4aa4a89d9"
+			}
+		}
+	}, {
+		"resource": {
+			"resourceType": "Observation",
+			"id": "gender-832aec5d-dd22-467f-92e6-f115f2d80ac7",
+			"text": {
+				"div": "<div class='fhirObservation'><span>Observation</span> - <span>gender</span> : <span>male</span></div>",
+				"status": "additional"
+			},
+			"effectiveDateTime": "2020-12-01T14:49:36.326Z",
+			"code": {
+				"coding": [{
+					"system": "http://snomed.info/sct",
+					"code": "429019009",
+					"display": "Sex"
+				}]
+			},
+			"status": "preliminary",
+			"valueCodeableConcept": {
+				"coding": [{
+					"system": "http://snomed.info/sct",
+					"code": "248153007",
+					"display": "male"
+				}]
+			},
+			"subject": {
+				"reference": "Patient/7adb02a5-4afb-406e-91df-a8e4aa4a89d9"
+			},
+			"performer": [{
+				"reference": "Practitioner/chaone"
+			}],
+			"encounter": {
+				"reference": "Encounter/832aec5d-dd22-467f-92e6-f115f2d80ac7"
+			}
+		}
+	}, {
+		"resource": {
+			"resourceType": "Observation",
+			"id": "age-832aec5d-dd22-467f-92e6-f115f2d80ac7",
+			"text": {
+				"div": "<div class='fhirObservation'><span>Observation</span> - <span>age</span> : <span>384 d</span></div>",
+				"status": "additional"
+			},
+			"effectiveDateTime": "2020-12-01T14:49:36.326Z",
+			"code": {
+				"coding": [{
+					"system": "http://snomed.info/sct",
+					"code": "424144002",
+					"display": "Age"
+				}]
+			},
+			"status": "preliminary",
+			"valueQuantity": {
+				"system": "http://hl7.org/fhir/ValueSet/age-units",
+				"unit": "",
+				"code": "d",
+				"value": "384"
+			},
+			"subject": {
+				"reference": "Patient/7adb02a5-4afb-406e-91df-a8e4aa4a89d9"
+			},
+			"performer": [{
+				"reference": "Practitioner/chaone"
+			}],
+			"encounter": {
+				"reference": "Encounter/832aec5d-dd22-467f-92e6-f115f2d80ac7"
+			}
+		}
+	}, {
+		"resource": {
+			"resourceType": "Observation",
+			"id": "weight-832aec5d-dd22-467f-92e6-f115f2d80ac7",
+			"text": {
+				"div": "<div class='fhirObservation'><span>Observation</span> - <span>weight</span> : <span>18.3 kg</span></div>",
+				"status": "additional"
+			},
+			"effectiveDateTime": "2020-12-01T14:49:36.326Z",
+			"code": {
+				"coding": [{
+					"system": "http://snomed.info/sct",
+					"code": "27113001",
+					"display": "Body weight"
+				}]
+			},
+			"status": "preliminary",
+			"valueQuantity": {
+				"system": "http://unitsofmeasure.org",
+				"unit": "kg",
+				"code": "kg",
+				"value": "18.3"
+			},
+			"subject": {
+				"reference": "Patient/7adb02a5-4afb-406e-91df-a8e4aa4a89d9"
+			},
+			"performer": [{
+				"reference": "Practitioner/chaone"
+			}],
+			"encounter": {
+				"reference": "Encounter/832aec5d-dd22-467f-92e6-f115f2d80ac7"
+			}
+		}
+	}, {
+		"resource": {
+			"resourceType": "Observation",
+			"id": "temperature-832aec5d-dd22-467f-92e6-f115f2d80ac7",
+			"text": {
+				"div": "<div class='fhirObservation'><span>Observation</span> - <span>temperature</span> : <span>37.3 Cel</span></div>",
+				"status": "additional"
+			},
+			"effectiveDateTime": "2020-12-01T14:49:36.326Z",
+			"code": {
+				"coding": [{
+					"system": "http://snomed.info/sct",
+					"code": "386725007",
+					"display": "Body temperature"
+				}]
+			},
+			"status": "preliminary",
+			"valueQuantity": {
+				"system": "http://unitsofmeasure.org",
+				"unit": "degrees C",
+				"code": "Cel",
+				"value": "37.3"
+			},
+			"subject": {
+				"reference": "Patient/7adb02a5-4afb-406e-91df-a8e4aa4a89d9"
+			},
+			"performer": [{
+				"reference": "Practitioner/chaone"
+			}],
+			"encounter": {
+				"reference": "Encounter/832aec5d-dd22-467f-92e6-f115f2d80ac7"
+			}
+		}
+	}, {
+		"resource": {
+			"resourceType": "Observation",
+			"id": "pain_when_urinating-832aec5d-dd22-467f-92e6-f115f2d80ac7",
+			"text": {
+				"div": "<div class='fhirObservation'><span>Observation</span> - <span>pain_when_urinating</span> : <span>no</span></div>",
+				"status": "additional"
+			},
+			"effectiveDateTime": "2020-12-01T14:49:36.326Z",
+			"code": {
+				"coding": [{
+					"system": "http://snomed.info/sct",
+					"code": "49650001",
+					"display": "Dysuria"
+				}]
+			},
+			"status": "preliminary",
+			"valueCodeableConcept": {
+				"coding": [{
+					"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+					"code": "N",
+					"display": "no"
+				}]
+			},
+			"subject": {
+				"reference": "Patient/7adb02a5-4afb-406e-91df-a8e4aa4a89d9"
+			},
+			"performer": [{
+				"reference": "Practitioner/chaone"
+			}],
+			"encounter": {
+				"reference": "Encounter/832aec5d-dd22-467f-92e6-f115f2d80ac7"
+			}
+		}
+	}, {
+		"resource": {
+			"resourceType": "Observation",
+			"id": "sick-832aec5d-dd22-467f-92e6-f115f2d80ac7",
+			"text": {
+				"div": "<div class='fhirObservation'><span>Observation</span> - <span>sick</span> : <span>no</span></div>",
+				"status": "additional"
+			},
+			"effectiveDateTime": "2020-12-01T14:49:36.326Z",
+			"code": {
+				"coding": [{
+					"system": "http://snomed.info/sct",
+					"code": "275142008",
+					"display": "Sick child"
+				}]
+			},
+			"status": "preliminary",
+			"valueCodeableConcept": {
+				"coding": [{
+					"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+					"code": "N",
+					"display": "no"
+				}]
+			},
+			"subject": {
+				"reference": "Patient/7adb02a5-4afb-406e-91df-a8e4aa4a89d9"
+			},
+			"performer": [{
+				"reference": "Practitioner/chaone"
+			}],
+			"encounter": {
+				"reference": "Encounter/832aec5d-dd22-467f-92e6-f115f2d80ac7"
+			}
+		}
+	}, {
+		"resource": {
+			"resourceType": "Observation",
+			"id": "seizure-832aec5d-dd22-467f-92e6-f115f2d80ac7",
+			"text": {
+				"div": "<div class='fhirObservation'><span>Observation</span> - <span>seizure</span> : <span>no</span></div>",
+				"status": "additional"
+			},
+			"effectiveDateTime": "2020-12-01T14:49:36.326Z",
+			"code": {
+				"coding": [{
+					"system": "http://snomed.info/sct",
+					"code": "91175000",
+					"display": "Seizure"
+				}]
+			},
+			"status": "preliminary",
+			"valueCodeableConcept": {
+				"coding": [{
+					"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+					"code": "N",
+					"display": "no"
+				}]
+			},
+			"subject": {
+				"reference": "Patient/7adb02a5-4afb-406e-91df-a8e4aa4a89d9"
+			},
+			"performer": [{
+				"reference": "Practitioner/chaone"
+			}],
+			"encounter": {
+				"reference": "Encounter/832aec5d-dd22-467f-92e6-f115f2d80ac7"
+			}
+		}
+	}, {
+		"resource": {
+			"resourceType": "Observation",
+			"id": "bloody_stools-832aec5d-dd22-467f-92e6-f115f2d80ac7",
+			"text": {
+				"div": "<div class='fhirObservation'><span>Observation</span> - <span>bloody_stools</span> : <span>no</span></div>",
+				"status": "additional"
+			},
+			"effectiveDateTime": "2020-12-01T14:49:36.326Z",
+			"code": {
+				"coding": [{
+					"system": "http://snomed.info/sct",
+					"code": "300392005",
+					"display": "Stool flecked with blood"
+				}]
+			},
+			"status": "preliminary",
+			"valueCodeableConcept": {
+				"coding": [{
+					"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+					"code": "N",
+					"display": "no"
+				}]
+			},
+			"subject": {
+				"reference": "Patient/7adb02a5-4afb-406e-91df-a8e4aa4a89d9"
+			},
+			"performer": [{
+				"reference": "Practitioner/chaone"
+			}],
+			"encounter": {
+				"reference": "Encounter/832aec5d-dd22-467f-92e6-f115f2d80ac7"
+			}
+		}
+	}, {
+		"resource": {
+			"resourceType": "Observation",
+			"id": "ear_pain-832aec5d-dd22-467f-92e6-f115f2d80ac7",
+			"text": {
+				"div": "<div class='fhirObservation'><span>Observation</span> - <span>ear_pain</span> : <span>no</span></div>",
+				"status": "additional"
+			},
+			"effectiveDateTime": "2020-12-01T14:49:36.326Z",
+			"code": {
+				"coding": [{
+					"system": "http://snomed.info/sct",
+					"code": "301354004",
+					"display": "Pain of ear structure"
+				}]
+			},
+			"status": "preliminary",
+			"valueCodeableConcept": {
+				"coding": [{
+					"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+					"code": "N",
+					"display": "no"
+				}]
+			},
+			"subject": {
+				"reference": "Patient/7adb02a5-4afb-406e-91df-a8e4aa4a89d9"
+			},
+			"performer": [{
+				"reference": "Practitioner/chaone"
+			}],
+			"encounter": {
+				"reference": "Encounter/832aec5d-dd22-467f-92e6-f115f2d80ac7"
+			}
+		}
+	}, {
+		"resource": {
+			"resourceType": "Observation",
+			"id": "fever-832aec5d-dd22-467f-92e6-f115f2d80ac7",
+			"text": {
+				"div": "<div class='fhirObservation'><span>Observation</span> - <span>fever</span> : <span>no</span></div>",
+				"status": "additional"
+			},
+			"effectiveDateTime": "2020-12-01T14:49:36.326Z",
+			"code": {
+				"coding": [{
+					"system": "http://snomed.info/sct",
+					"code": "386661006",
+					"display": "Fever"
+				}]
+			},
+			"status": "preliminary",
+			"valueCodeableConcept": {
+				"coding": [{
+					"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+					"code": "N",
+					"display": "no"
+				}]
+			},
+			"subject": {
+				"reference": "Patient/7adb02a5-4afb-406e-91df-a8e4aa4a89d9"
+			},
+			"performer": [{
+				"reference": "Practitioner/chaone"
+			}],
+			"encounter": {
+				"reference": "Encounter/832aec5d-dd22-467f-92e6-f115f2d80ac7"
+			}
+		}
+	}, {
+		"resource": {
+			"resourceType": "Observation",
+			"id": "foul_smelling_urine-832aec5d-dd22-467f-92e6-f115f2d80ac7",
+			"text": {
+				"div": "<div class='fhirObservation'><span>Observation</span> - <span>foul_smelling_urine</span> : <span>no</span></div>",
+				"status": "additional"
+			},
+			"effectiveDateTime": "2020-12-01T14:49:36.326Z",
+			"code": {
+				"coding": [{
+					"system": "http://snomed.info/sct",
+					"code": "690701000119101",
+					"display": "Foul smelling urine"
+				}]
+			},
+			"status": "preliminary",
+			"valueCodeableConcept": {
+				"coding": [{
+					"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+					"code": "N",
+					"display": "no"
+				}]
+			},
+			"subject": {
+				"reference": "Patient/7adb02a5-4afb-406e-91df-a8e4aa4a89d9"
+			},
+			"performer": [{
+				"reference": "Practitioner/chaone"
+			}],
+			"encounter": {
+				"reference": "Encounter/832aec5d-dd22-467f-92e6-f115f2d80ac7"
+			}
+		}
+	}, {
+		"resource": {
+			"resourceType": "Observation",
+			"id": "cold_chills-832aec5d-dd22-467f-92e6-f115f2d80ac7",
+			"text": {
+				"div": "<div class='fhirObservation'><span>Observation</span> - <span>cold_chills</span> : <span>no</span></div>",
+				"status": "additional"
+			},
+			"effectiveDateTime": "2020-12-01T14:49:36.326Z",
+			"code": {
+				"coding": [{
+					"system": "http://snomed.info/sct",
+					"code": "43724002",
+					"display": "Chill"
+				}]
+			},
+			"status": "preliminary",
+			"valueCodeableConcept": {
+				"coding": [{
+					"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+					"code": "N",
+					"display": "no"
+				}]
+			},
+			"subject": {
+				"reference": "Patient/7adb02a5-4afb-406e-91df-a8e4aa4a89d9"
+			},
+			"performer": [{
+				"reference": "Practitioner/chaone"
+			}],
+			"encounter": {
+				"reference": "Encounter/832aec5d-dd22-467f-92e6-f115f2d80ac7"
+			}
+		}
+	}, {
+		"resource": {
+			"resourceType": "Observation",
+			"id": "tired-832aec5d-dd22-467f-92e6-f115f2d80ac7",
+			"text": {
+				"div": "<div class='fhirObservation'><span>Observation</span> - <span>tired</span> : <span>no</span></div>",
+				"status": "additional"
+			},
+			"effectiveDateTime": "2020-12-01T14:49:36.326Z",
+			"code": {
+				"coding": [{
+					"system": "http://snomed.info/sct",
+					"code": "224960004",
+					"display": "Tired"
+				}]
+			},
+			"status": "preliminary",
+			"valueCodeableConcept": {
+				"coding": [{
+					"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+					"code": "N",
+					"display": "no"
+				}]
+			},
+			"subject": {
+				"reference": "Patient/7adb02a5-4afb-406e-91df-a8e4aa4a89d9"
+			},
+			"performer": [{
+				"reference": "Practitioner/chaone"
+			}],
+			"encounter": {
+				"reference": "Encounter/832aec5d-dd22-467f-92e6-f115f2d80ac7"
+			}
+		}
+	}, {
+		"resource": {
+			"resourceType": "Observation",
+			"id": "aching-832aec5d-dd22-467f-92e6-f115f2d80ac7",
+			"text": {
+				"div": "<div class='fhirObservation'><span>Observation</span> - <span>aching</span> : <span>no</span></div>",
+				"status": "additional"
+			},
+			"effectiveDateTime": "2020-12-01T14:49:36.326Z",
+			"code": {
+				"coding": [{
+					"system": "http://snomed.info/sct",
+					"code": "27635008",
+					"display": "Aching"
+				}]
+			},
+			"status": "preliminary",
+			"valueCodeableConcept": {
+				"coding": [{
+					"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+					"code": "N",
+					"display": "no"
+				}]
+			},
+			"subject": {
+				"reference": "Patient/7adb02a5-4afb-406e-91df-a8e4aa4a89d9"
+			},
+			"performer": [{
+				"reference": "Practitioner/chaone"
+			}],
+			"encounter": {
+				"reference": "Encounter/832aec5d-dd22-467f-92e6-f115f2d80ac7"
+			}
+		}
+	}, {
+		"resource": {
+			"resourceType": "Observation",
+			"id": "headache-832aec5d-dd22-467f-92e6-f115f2d80ac7",
+			"text": {
+				"div": "<div class='fhirObservation'><span>Observation</span> - <span>headache</span> : <span>no</span></div>",
+				"status": "additional"
+			},
+			"effectiveDateTime": "2020-12-01T14:49:36.326Z",
+			"code": {
+				"coding": [{
+					"system": "http://snomed.info/sct",
+					"code": "25064002",
+					"display": "Headache"
+				}]
+			},
+			"status": "preliminary",
+			"valueCodeableConcept": {
+				"coding": [{
+					"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+					"code": "N",
+					"display": "no"
+				}]
+			},
+			"subject": {
+				"reference": "Patient/7adb02a5-4afb-406e-91df-a8e4aa4a89d9"
+			},
+			"performer": [{
+				"reference": "Practitioner/chaone"
+			}],
+			"encounter": {
+				"reference": "Encounter/832aec5d-dd22-467f-92e6-f115f2d80ac7"
+			}
+		}
+	}, {
+		"resource": {
+			"resourceType": "Observation",
+			"id": "travel_to_malaria_zone-832aec5d-dd22-467f-92e6-f115f2d80ac7",
+			"text": {
+				"div": "<div class='fhirObservation'><span>Observation</span> - <span>travel_to_malaria_zone</span> : <span>yes</span></div>",
+				"status": "additional"
+			},
+			"effectiveDateTime": "2020-12-01T14:49:36.326Z",
+			"code": {
+				"coding": [{
+					"system": "http://hl7.org/fhir/sid/icd-10-cm",
+					"code": "Z779",
+					"display": "travel to malaria zone"
+				}]
+			},
+			"status": "preliminary",
+			"valueCodeableConcept": {
+				"coding": [{
+					"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+					"code": "Y",
+					"display": "yes"
+				}]
+			},
+			"subject": {
+				"reference": "Patient/7adb02a5-4afb-406e-91df-a8e4aa4a89d9"
+			},
+			"performer": [{
+				"reference": "Practitioner/chaone"
+			}],
+			"encounter": {
+				"reference": "Encounter/832aec5d-dd22-467f-92e6-f115f2d80ac7"
+			}
+		}
+	}, {
+		"resource": {
+			"resourceType": "Observation",
+			"id": "wakefulness-832aec5d-dd22-467f-92e6-f115f2d80ac7",
+			"text": {
+				"div": "<div class='fhirObservation'><span>Observation</span> - <span>wakefulness</span> : <span>mild</span></div>",
+				"status": "additional"
+			},
+			"effectiveDateTime": "2020-12-01T14:49:36.326Z",
+			"code": {
+				"coding": [{
+					"system": "http://snomed.info/sct",
+					"code": "27625002",
+					"display": "Wakefulness"
+				}]
+			},
+			"status": "preliminary",
+			"valueCodeableConcept": {
+				"coding": [{
+					"system": "http://snomed.info/sct",
+					"display": "mild"
+				}]
+			},
+			"subject": {
+				"reference": "Patient/7adb02a5-4afb-406e-91df-a8e4aa4a89d9"
+			},
+			"performer": [{
+				"reference": "Practitioner/chaone"
+			}],
+			"encounter": {
+				"reference": "Encounter/832aec5d-dd22-467f-92e6-f115f2d80ac7"
+			}
+		}
+	}, {
+		"resource": {
+			"resourceType": "Observation",
+			"id": "pain_when_moving_neck-832aec5d-dd22-467f-92e6-f115f2d80ac7",
+			"text": {
+				"div": "<div class='fhirObservation'><span>Observation</span> - <span>pain_when_moving_neck</span> : <span>no</span></div>",
+				"status": "additional"
+			},
+			"effectiveDateTime": "2020-12-01T14:49:36.326Z",
+			"code": {
+				"coding": [{
+					"system": "http://snomed.info/sct",
+					"code": "81680005",
+					"display": "neck pain"
+				}]
+			},
+			"status": "preliminary",
+			"valueCodeableConcept": {
+				"coding": [{
+					"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+					"code": "N",
+					"display": "no"
+				}]
+			},
+			"subject": {
+				"reference": "Patient/7adb02a5-4afb-406e-91df-a8e4aa4a89d9"
+			},
+			"performer": [{
+				"reference": "Practitioner/chaone"
+			}],
+			"encounter": {
+				"reference": "Encounter/832aec5d-dd22-467f-92e6-f115f2d80ac7"
+			}
+		}
+	}, {
+		"resource": {
+			"resourceType": "Patient",
+			"id": "7adb02a5-4afb-406e-91df-a8e4aa4a89d9",
+			"active": true,
+			"gender": "male",
+			"identifier": [{
+				"system": "https://fhir.smartregister.org/thinkMD_id",
+				"use": "usual",
+				"value": "7adb02a5-4afb-406e-91df-a8e4aa4a89d9",
+				"type": {
+					"coding": [{
+						"code": "MR",
+						"system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+					}]
+				}
+			}, {
+				"system": "https://fhir.thinkmd.tech",
+				"value": "ThinkMD-9311df5b-0613-41b1-8d46-f04cb344327a"
+			}]
+		}
+	}, {
+		"resource": {
+			"resourceType": "Practitioner",
+			"id": "chaone",
+			"active": true,
+			"communication": {
+				"coding": [{
+					"code": "en",
+					"display": "English",
+					"system": "urn:ietf:bcp:47"
+				}]
+			},
+			"identifier": [{
+				"system": "https://fhir.thinkmd.tech",
+				"value": "123"
+			}]
+		}
+	}, {
+		"resource": {
+			"resourceType": "Location",
+			"description": "Device-collected geo: up_to_date",
+			"mode": "instance",
+			"position": {
+				"latitude": "44.345340199999995",
+				"longitude": "-73.1011485"
+			}
+		}
+	}]
+}

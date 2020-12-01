@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> </title>
+    <script type="text/javascript" src="parser.js"></script>
+</head>
+<script>
+    (async() => {
+        let data = await fetch("fhir.json")
+        let fhir = await data.json()
+        let types = ['Condition', 'Observation']
+        console.log(fhir)
+
+        types.forEach(type => {
+            console.log(type)
+
+            let items = fhir.entry.filter(entry => (entry.resource && entry.resource.resourceType === type))
+
+            items.forEach(item => {
+                try {
+                    if (item.resource.text.div) {
+                        var node = document.createElement("li")
+                        node.innerHTML = item.resource.text.div
+                        document.getElementById(type).appendChild(node)
+                    }
+                }
+                catch (e) {
+                    console.log(e)
+                }
+            })
+        })
+
+
+    })()
+</script>
+
+<body>
+    <div id="encounter">
+        <div>
+            <h1>Conditions</h1>
+            <ul id="Condition"></ul>
+        </div>
+        <div>
+            <h1>Observations</h1>
+            <ul id="Observation"></ul>
+        </div>
+    </div>
+</body>
+
+<style>
+</style>
+
+</html>
