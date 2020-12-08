@@ -3,10 +3,10 @@
 	"type": "transaction",
 	"entry": [
 		{
-			"fullUrl": "urn:uuid:d6855f93-b7f1-4d1b-9fa6-d017bdea0cb1",
+			"fullUrl": "urn:uuid:d3dbcaf3-9855-4541-bace-51d6e91e310b",
 			"resource": {
 				"resourceType": "MessageHeader",
-				"id": "d6855f93-b7f1-4d1b-9fa6-d017bdea0cb1",
+				"id": "d3dbcaf3-9855-4541-bace-51d6e91e310b",
 				"text": {
 					"status": "generated",
 					"div": "<div xmlns='http://www.w3.org/1999/xhtml'>Message Header</div>"
@@ -30,7 +30,7 @@
 			},
 			"request": {
 				"method": "PUT",
-				"url": "MessageHeader/d6855f93-b7f1-4d1b-9fa6-d017bdea0cb1"
+				"url": "MessageHeader/d3dbcaf3-9855-4541-bace-51d6e91e310b"
 			}
 		},
 		{
@@ -982,7 +982,7 @@
 			}
 		},
 		{
-			"fullUrl": "https://fhir.thinkmd.tech/Location/25a0636e-766f-48e7-a09f-e772c5f31d0d",
+			"fullUrl": "https://fhir.thinkmd.tech/Location/2576b9c4-c059-40d7-94e1-6aa0b9b0545b",
 			"resource": {
 				"resourceType": "Location",
 				"description": "Device-collected geo: up_to_date",
@@ -994,7 +994,7 @@
 			},
 			"request": {
 				"method": "PUT",
-				"url": "Location/25a0636e-766f-48e7-a09f-e772c5f31d0d"
+				"url": "Location/2576b9c4-c059-40d7-94e1-6aa0b9b0545b"
 			}
 		},
 		{
@@ -1006,6 +1006,10 @@
 				"text": {
 					"div": "<div class='fhirEncounter'><span>Encounter</span></div>",
 					"status": "additional"
+				},
+				"period": {
+					"start": "2020-09-29T21:33:52.718Z",
+					"end": "2020-09-29T21:35:04.903Z"
 				},
 				"class": {
 					"system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
