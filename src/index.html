@@ -10,8 +10,10 @@
     (async() => {
         let data = await fetch("fhir_update_2.json")
         let fhir = await data.json()
-        let types = ['Observation']
         console.log(fhir)
+        
+        let careTranslations = await fetch("care.json")
+        careTranslations = await careTranslations.json()
 
         // Get start date from the encounter resource: period.start
         let encounterResource = fhir.entry.find(entry => (entry.resource && entry.resource.resourceType === "Encounter"))
@@ -38,6 +40,7 @@
             return s.split('_').join(' ')
         }
 
+        // Parse Conditions
         let conditions = getFhirResourcesByType("Condition")
         conditions.forEach(item => {
             try {
@@ -63,6 +66,7 @@
             }
         })
 
+        // Parse observations
         let observations = getFhirResourcesByType("Observation")
         observations.forEach(item => {
             try {
@@ -88,6 +92,46 @@
             }
         })
 
+        // Parse CarePlans
+        let careItems = []
+
+        let careplans = getFhirResourcesByType("CarePlan")
+        careplans.forEach(item => {
+            if (item.resource.activity) {
+                item.resource.activity.forEach(activity => {
+                    try {
+                        if (activity.detail.kind === "Task") {
+                            careItems.push(activity.detail.code.coding[0].display)
+                        }
+                    }
+                    catch (e) { console.log(e) }
+                })
+            }
+        })
+        
+        if (careItems.length > 0) {
+            careItems = [... new Set(careItems)]
+            
+            let div_node = document.createElement("div")
+            div_node.className = "container"
+            
+            let h2_node = document.createElement("h2")
+            h2_node.innerText = "Careplan"
+            div_node.appendChild(h2_node)
+            let ul_node = document.createElement("ul")
+            ul_node.setAttribute("id", "CarePlan")
+            div_node.appendChild(ul_node)
+            
+            careItems.forEach(item => {
+                let li_node = document.createElement("li")
+                // li_node.innerText = formatString(item)
+                li_node.innerText = careTranslations[item]
+                ul_node.appendChild(li_node)
+            })
+            
+            document.getElementById("thinkmd-encounter").appendChild(div_node)
+        }
+        
     })()
 </script>
 
@@ -120,7 +164,7 @@
     }
 
     table {
-        margin-left: 15px;
+        margin: auto;
         width: 90%;
         border-collapse: collapse;
     }
@@ -129,7 +173,7 @@
         padding: 8px 15px;
     }
 
-    td:first-child {
+    td:first-child, #CarePlan {
         color: rgba(0, 0, 0, .6);
     }
 
@@ -172,6 +216,10 @@
 
     ul {
         list-style-type: none;
+    }
+
+    li:not(:last-child) {
+        margin-bottom: 8px;
     }
 
     h2 {
