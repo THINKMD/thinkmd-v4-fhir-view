@@ -8,7 +8,7 @@
 </head>
 <script>
     (async() => {
-        let data = await fetch("fhir_update_3-med.json")
+        let data = await fetch("fhir_update_6-med4.json")
         let fhir = await data.json()
         console.log(fhir)
         
@@ -131,6 +131,42 @@
             
             document.getElementById("thinkmd-encounter").appendChild(div_node)
         }
+        
+        // Parse Medication Requests
+        let meds = getFhirResourcesByType("MedicationRequest")
+        if (meds.length > 0) {
+            let div_node = document.createElement("div")
+            div_node.className = "container"
+            
+            let h2_node = document.createElement("h2")
+            h2_node.innerText = "Treatments"
+            div_node.appendChild(h2_node)
+            let ul_node = document.createElement("ul")
+            ul_node.setAttribute("id", "MedicationRequest")
+            div_node.appendChild(ul_node)
+            
+            meds.forEach(item => {
+                try {
+                    let li_node = document.createElement("li")
+                    let name_node = document.createElement("span")
+                    name_node.innerText = item.resource.medicationCodeableConcept.text + '\n'
+                    name_node.className = "blue-highlight"
+                    li_node.appendChild(name_node)
+                    
+                    let form_node = document.createElement("span")
+                    form_node.innerHTML = item.resource.dosageInstruction[0].text
+                    li_node.appendChild(form_node)
+                    
+                    ul_node.appendChild(li_node)
+                    
+                } catch(e) {
+                    console.log(`error with medicationRequest: ${item.resource.id}`, e)
+                }
+            })
+            
+            document.getElementById("thinkmd-encounter").appendChild(div_node)
+        }
+        
         
     })()
 </script>
