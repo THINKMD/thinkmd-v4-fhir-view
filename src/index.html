@@ -10,22 +10,6 @@
     (async() => {
         let data = await fetch("fhir_update_8-long.json")
         let fhir = await data.json()
-        console.log(fhir)
-
-        // Get start date from the encounter resource: period.start
-        let encounterResource = fhir.entry.find(entry => (entry.resource && entry.resource.resourceType === "Encounter"))
-        if (encounterResource) {
-            try {
-                let date = new Date(encounterResource.resource.period.start)
-                let dateElement = document.createElement("p")
-                dateElement.setAttribute("id", "encounter-date")
-                dateElement.innerHTML = date.toDateString()
-                document.getElementById("header").appendChild(dateElement)
-            }
-            catch (e) {
-                console.log("no encounter period found")
-            }
-        }
 
         const getFhirResourcesByType = type => {
             return fhir.entry.filter(entry => (entry.resource && entry.resource.resourceType === type))
@@ -52,32 +36,55 @@
             s = s.charAt(0).toUpperCase() + s.slice(1)
             return s.split('_').join(' ')
         }
+        
+        const SEVERITIES = ['severe', 'moderate', 'mild', 'inconclusive', 'possible', 'none', 'not_assessed']
+        
+        // Get start date from the encounter resource: period.start
+        let encounterResource = getFhirResourcesByType("Encounter")[0]
+        if (encounterResource) {
+            try {
+                let date = new Date(encounterResource.resource.period.start)
+                let dateElement = document.createElement("p")
+                dateElement.setAttribute("id", "encounter-date")
+                dateElement.innerHTML = date.toDateString()
+                document.getElementById("header").appendChild(dateElement)
+            }
+            catch (e) {
+                console.log("no encounter period found")
+            }
+        }
 
         // Parse Conditions
-        let conditions = getFhirResourcesByType("Condition")
-        conditions.forEach(item => {
+        let conditionResources = getFhirResourcesByType("Condition")
+        let conditions = conditionResources.reduce((acc,item) => {
             try {
                 // placeholder element to extract the html spans
                 let el = document.createElement("toAdd")
                 el.innerHTML = item.resource.text.div
                 let severity = el.children[0].children[2].innerText
                 let cond = el.children[0].children[1].innerText
-
-                let node = document.createElement("li")
-                let sev_node = document.createElement("span")
-                sev_node.innerText = formatString(severity)
-                sev_node.className = `severity-${severity}`
-                node.appendChild(sev_node)
-
-                let cond_node = document.createElement("span")
-                cond_node.innerText = ' ' + formatString(cond)
-                node.appendChild(cond_node)
-
-                document.getElementById("Condition").appendChild(node)
+                acc.push([severity, cond])
             }
             catch (e) {
                 console.log(`error for ${item.resource.id}`)
             }
+            return acc
+        }, [])
+        
+        conditions.sort((a,b) => SEVERITIES.indexOf(a[0]) - SEVERITIES.indexOf(b[0]))
+        
+        conditions.forEach(condition => {
+                let node = document.createElement("li")
+                let sev_node = document.createElement("span")
+                sev_node.innerText = formatString(condition[0])
+                sev_node.className = `severity-${condition[0]}`
+                node.appendChild(sev_node)
+
+                let cond_node = document.createElement("span")
+                cond_node.innerText = ' ' + formatString(condition[1])
+                node.appendChild(cond_node)
+
+                document.getElementById("Condition").appendChild(node)
         })
 
         // Parse observations
@@ -106,10 +113,9 @@
         })
 
         // Parse CarePlans
-        let careItems = []
 
         let careplans = getFhirResourcesByType("CarePlan")
-        careplans.forEach(item => {
+        let careItems = careplans.reduce((acc, item) => {
             if (item.resource.activity) {
                 item.resource.activity.forEach(activity => {
                     if (activity.detail && activity.detail.kind === "Task") {
@@ -118,14 +124,15 @@
                         ors_by_mouth is one, because it is technically a med request, but is listed as a care item as well
                         */
                         if (activity.detail.description) {
-                            careItems.push(activity.detail.description)
+                            acc.push(activity.detail.description)
                         }
                         else console.log("no description of task: ", activity.detail)
                     }
 
                 })
             }
-        })
+            return acc
+        }, [])
 
         if (careItems.length > 0) {
             careItems = [...new Set(careItems)]
@@ -137,7 +144,6 @@
                 li_node.innerHTML = item
                 ul_node.appendChild(li_node)
             })
-
         }
 
         // Parse Medication Requests
