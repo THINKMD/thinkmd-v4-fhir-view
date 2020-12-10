@@ -1,0 +1,1109 @@
+{
+	"resourceType": "Bundle",
+	"type": "transaction",
+	"entry": [
+		{
+			"fullUrl": "urn:uuid:773f04b2-2bfc-49ad-a197-be0c19fed34c",
+			"resource": {
+				"resourceType": "MessageHeader",
+				"id": "773f04b2-2bfc-49ad-a197-be0c19fed34c",
+				"text": {
+					"status": "generated",
+					"div": "<div xmlns='http://www.w3.org/1999/xhtml'>Message Header</div>"
+				},
+				"destination": [
+					{
+						"name": "Ona",
+						"endpoint": "https://tbd.ona.opensrp"
+					}
+				],
+				"source": {
+					"name": "ThinkMD",
+					"software": "ThinkMD",
+					"version": "V4.01",
+					"endpoint": "https://fhir.thinkmd.tech"
+				},
+				"eventCoding": {
+					"system": "http://hl7.org/fhir/restful-interaction",
+					"code": "batch"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "MessageHeader/773f04b2-2bfc-49ad-a197-be0c19fed34c"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/Condition/malaria-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+			"resource": {
+				"resourceType": "Condition",
+				"id": "malaria-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+				"text": {
+					"status": "generated",
+					"div": "<div class='fhirCondition'><span>Condition</span> - <span>malaria</span> : <span>severe</span></div>"
+				},
+				"severity": {
+					"coding": [
+						{
+							"system": "http://snomed.info/sct",
+							"code": "24484000",
+							"display": "severe"
+						}
+					]
+				},
+				"clinicalStatus": {
+					"coding": [
+						{
+							"system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+							"code": "active"
+						}
+					]
+				},
+				"verificationStatus": {
+					"coding": [
+						{
+							"system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+							"code": "unconfirmed"
+						}
+					]
+				},
+				"code": {
+					"coding": [
+						{
+							"system": "http://snomed.info/sct",
+							"code": "61462000",
+							"display": "malaria"
+						}
+					]
+				},
+				"onsetDateTime": "2020-12-09T21:11:46.493Z",
+				"recordedDate": "2020-12-09T21:11:46.493Z",
+				"encounter": {
+					"reference": "Encounter/20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+				},
+				"subject": {
+					"reference": "Patient/ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Condition/malaria-20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/Observation/gender-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+			"resource": {
+				"resourceType": "Observation",
+				"id": "gender-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+				"text": {
+					"div": "<div class='fhirObservation'><span>Observation</span> - <span>gender</span> : <span>male</span></div>",
+					"status": "additional"
+				},
+				"effectiveDateTime": "2020-12-09T21:11:57.813Z",
+				"code": {
+					"coding": [
+						{
+							"system": "http://snomed.info/sct",
+							"code": "429019009",
+							"display": "Sex"
+						}
+					]
+				},
+				"status": "preliminary",
+				"valueCodeableConcept": {
+					"coding": [
+						{
+							"system": "http://snomed.info/sct",
+							"code": "248153007",
+							"display": "male"
+						}
+					]
+				},
+				"subject": {
+					"reference": "Patient/ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292"
+				},
+				"performer": [
+					{
+						"reference": "Practitioner/123"
+					}
+				],
+				"encounter": {
+					"reference": "Encounter/20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Observation/gender-20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/Observation/weight-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+			"resource": {
+				"resourceType": "Observation",
+				"id": "weight-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+				"text": {
+					"div": "<div class='fhirObservation'><span>Observation</span> - <span>weight</span> : <span>14.1 kg</span></div>",
+					"status": "additional"
+				},
+				"effectiveDateTime": "2020-12-09T21:11:57.813Z",
+				"code": {
+					"coding": [
+						{
+							"system": "http://snomed.info/sct",
+							"code": "27113001",
+							"display": "Body weight"
+						}
+					]
+				},
+				"status": "preliminary",
+				"valueQuantity": {
+					"system": "http://unitsofmeasure.org",
+					"unit": "kg",
+					"code": "kg",
+					"value": 14.1
+				},
+				"subject": {
+					"reference": "Patient/ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292"
+				},
+				"performer": [
+					{
+						"reference": "Practitioner/123"
+					}
+				],
+				"encounter": {
+					"reference": "Encounter/20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Observation/weight-20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/Observation/temperature-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+			"resource": {
+				"resourceType": "Observation",
+				"id": "temperature-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+				"text": {
+					"div": "<div class='fhirObservation'><span>Observation</span> - <span>temperature</span> : <span>37.1 Cel</span></div>",
+					"status": "additional"
+				},
+				"effectiveDateTime": "2020-12-09T21:11:57.813Z",
+				"code": {
+					"coding": [
+						{
+							"system": "http://snomed.info/sct",
+							"code": "386725007",
+							"display": "Body temperature"
+						}
+					]
+				},
+				"status": "preliminary",
+				"valueQuantity": {
+					"system": "http://unitsofmeasure.org",
+					"unit": "degrees C",
+					"code": "Cel",
+					"value": 37.1
+				},
+				"subject": {
+					"reference": "Patient/ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292"
+				},
+				"performer": [
+					{
+						"reference": "Practitioner/123"
+					}
+				],
+				"encounter": {
+					"reference": "Encounter/20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Observation/temperature-20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/Observation/painwhenurinating-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+			"resource": {
+				"resourceType": "Observation",
+				"id": "painwhenurinating-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+				"text": {
+					"div": "<div class='fhirObservation'><span>Observation</span> - <span>pain_when_urinating</span> : <span>yes</span></div>",
+					"status": "additional"
+				},
+				"effectiveDateTime": "2020-12-09T21:11:57.813Z",
+				"code": {
+					"coding": [
+						{
+							"system": "http://snomed.info/sct",
+							"code": "49650001",
+							"display": "Dysuria"
+						}
+					]
+				},
+				"status": "preliminary",
+				"valueCodeableConcept": {
+					"coding": [
+						{
+							"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+							"code": "Y",
+							"display": "yes"
+						}
+					]
+				},
+				"subject": {
+					"reference": "Patient/ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292"
+				},
+				"performer": [
+					{
+						"reference": "Practitioner/123"
+					}
+				],
+				"encounter": {
+					"reference": "Encounter/20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Observation/painwhenurinating-20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/Observation/sick-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+			"resource": {
+				"resourceType": "Observation",
+				"id": "sick-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+				"text": {
+					"div": "<div class='fhirObservation'><span>Observation</span> - <span>sick</span> : <span>yes</span></div>",
+					"status": "additional"
+				},
+				"effectiveDateTime": "2020-12-09T21:11:57.813Z",
+				"code": {
+					"coding": [
+						{
+							"system": "http://snomed.info/sct",
+							"code": "275142008",
+							"display": "Sick child"
+						}
+					]
+				},
+				"status": "preliminary",
+				"valueCodeableConcept": {
+					"coding": [
+						{
+							"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+							"code": "Y",
+							"display": "yes"
+						}
+					]
+				},
+				"subject": {
+					"reference": "Patient/ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292"
+				},
+				"performer": [
+					{
+						"reference": "Practitioner/123"
+					}
+				],
+				"encounter": {
+					"reference": "Encounter/20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Observation/sick-20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/Observation/seizure-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+			"resource": {
+				"resourceType": "Observation",
+				"id": "seizure-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+				"text": {
+					"div": "<div class='fhirObservation'><span>Observation</span> - <span>seizure</span> : <span>yes</span></div>",
+					"status": "additional"
+				},
+				"effectiveDateTime": "2020-12-09T21:11:57.813Z",
+				"code": {
+					"coding": [
+						{
+							"system": "http://snomed.info/sct",
+							"code": "91175000",
+							"display": "Seizure"
+						}
+					]
+				},
+				"status": "preliminary",
+				"valueCodeableConcept": {
+					"coding": [
+						{
+							"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+							"code": "Y",
+							"display": "yes"
+						}
+					]
+				},
+				"subject": {
+					"reference": "Patient/ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292"
+				},
+				"performer": [
+					{
+						"reference": "Practitioner/123"
+					}
+				],
+				"encounter": {
+					"reference": "Encounter/20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Observation/seizure-20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/Observation/bloodystools-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+			"resource": {
+				"resourceType": "Observation",
+				"id": "bloodystools-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+				"text": {
+					"div": "<div class='fhirObservation'><span>Observation</span> - <span>bloody_stools</span> : <span>yes</span></div>",
+					"status": "additional"
+				},
+				"effectiveDateTime": "2020-12-09T21:11:57.813Z",
+				"code": {
+					"coding": [
+						{
+							"system": "http://snomed.info/sct",
+							"code": "300392005",
+							"display": "Stool flecked with blood"
+						}
+					]
+				},
+				"status": "preliminary",
+				"valueCodeableConcept": {
+					"coding": [
+						{
+							"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+							"code": "Y",
+							"display": "yes"
+						}
+					]
+				},
+				"subject": {
+					"reference": "Patient/ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292"
+				},
+				"performer": [
+					{
+						"reference": "Practitioner/123"
+					}
+				],
+				"encounter": {
+					"reference": "Encounter/20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Observation/bloodystools-20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/Observation/earpain-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+			"resource": {
+				"resourceType": "Observation",
+				"id": "earpain-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+				"text": {
+					"div": "<div class='fhirObservation'><span>Observation</span> - <span>ear_pain</span> : <span>yes</span></div>",
+					"status": "additional"
+				},
+				"effectiveDateTime": "2020-12-09T21:11:57.813Z",
+				"code": {
+					"coding": [
+						{
+							"system": "http://snomed.info/sct",
+							"code": "301354004",
+							"display": "Pain of ear structure"
+						}
+					]
+				},
+				"status": "preliminary",
+				"valueCodeableConcept": {
+					"coding": [
+						{
+							"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+							"code": "Y",
+							"display": "yes"
+						}
+					]
+				},
+				"subject": {
+					"reference": "Patient/ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292"
+				},
+				"performer": [
+					{
+						"reference": "Practitioner/123"
+					}
+				],
+				"encounter": {
+					"reference": "Encounter/20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Observation/earpain-20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/Observation/fever-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+			"resource": {
+				"resourceType": "Observation",
+				"id": "fever-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+				"text": {
+					"div": "<div class='fhirObservation'><span>Observation</span> - <span>fever</span> : <span>yes</span></div>",
+					"status": "additional"
+				},
+				"effectiveDateTime": "2020-12-09T21:11:57.813Z",
+				"code": {
+					"coding": [
+						{
+							"system": "http://snomed.info/sct",
+							"code": "386661006",
+							"display": "Fever"
+						}
+					]
+				},
+				"status": "preliminary",
+				"valueCodeableConcept": {
+					"coding": [
+						{
+							"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+							"code": "Y",
+							"display": "yes"
+						}
+					]
+				},
+				"subject": {
+					"reference": "Patient/ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292"
+				},
+				"performer": [
+					{
+						"reference": "Practitioner/123"
+					}
+				],
+				"encounter": {
+					"reference": "Encounter/20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Observation/fever-20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/Observation/foulsmellingurine-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+			"resource": {
+				"resourceType": "Observation",
+				"id": "foulsmellingurine-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+				"text": {
+					"div": "<div class='fhirObservation'><span>Observation</span> - <span>foul_smelling_urine</span> : <span>yes</span></div>",
+					"status": "additional"
+				},
+				"effectiveDateTime": "2020-12-09T21:11:57.813Z",
+				"code": {
+					"coding": [
+						{
+							"system": "http://snomed.info/sct",
+							"code": "690701000119101",
+							"display": "Foul smelling urine"
+						}
+					]
+				},
+				"status": "preliminary",
+				"valueCodeableConcept": {
+					"coding": [
+						{
+							"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+							"code": "Y",
+							"display": "yes"
+						}
+					]
+				},
+				"subject": {
+					"reference": "Patient/ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292"
+				},
+				"performer": [
+					{
+						"reference": "Practitioner/123"
+					}
+				],
+				"encounter": {
+					"reference": "Encounter/20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Observation/foulsmellingurine-20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/Observation/coldchills-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+			"resource": {
+				"resourceType": "Observation",
+				"id": "coldchills-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+				"text": {
+					"div": "<div class='fhirObservation'><span>Observation</span> - <span>cold_chills</span> : <span>yes</span></div>",
+					"status": "additional"
+				},
+				"effectiveDateTime": "2020-12-09T21:11:57.813Z",
+				"code": {
+					"coding": [
+						{
+							"system": "http://snomed.info/sct",
+							"code": "43724002",
+							"display": "Chill"
+						}
+					]
+				},
+				"status": "preliminary",
+				"valueCodeableConcept": {
+					"coding": [
+						{
+							"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+							"code": "Y",
+							"display": "yes"
+						}
+					]
+				},
+				"subject": {
+					"reference": "Patient/ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292"
+				},
+				"performer": [
+					{
+						"reference": "Practitioner/123"
+					}
+				],
+				"encounter": {
+					"reference": "Encounter/20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Observation/coldchills-20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/Observation/tired-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+			"resource": {
+				"resourceType": "Observation",
+				"id": "tired-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+				"text": {
+					"div": "<div class='fhirObservation'><span>Observation</span> - <span>tired</span> : <span>yes</span></div>",
+					"status": "additional"
+				},
+				"effectiveDateTime": "2020-12-09T21:11:57.813Z",
+				"code": {
+					"coding": [
+						{
+							"system": "http://snomed.info/sct",
+							"code": "224960004",
+							"display": "Tired"
+						}
+					]
+				},
+				"status": "preliminary",
+				"valueCodeableConcept": {
+					"coding": [
+						{
+							"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+							"code": "Y",
+							"display": "yes"
+						}
+					]
+				},
+				"subject": {
+					"reference": "Patient/ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292"
+				},
+				"performer": [
+					{
+						"reference": "Practitioner/123"
+					}
+				],
+				"encounter": {
+					"reference": "Encounter/20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Observation/tired-20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/Observation/aching-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+			"resource": {
+				"resourceType": "Observation",
+				"id": "aching-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+				"text": {
+					"div": "<div class='fhirObservation'><span>Observation</span> - <span>aching</span> : <span>yes</span></div>",
+					"status": "additional"
+				},
+				"effectiveDateTime": "2020-12-09T21:11:57.813Z",
+				"code": {
+					"coding": [
+						{
+							"system": "http://snomed.info/sct",
+							"code": "27635008",
+							"display": "Aching"
+						}
+					]
+				},
+				"status": "preliminary",
+				"valueCodeableConcept": {
+					"coding": [
+						{
+							"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+							"code": "Y",
+							"display": "yes"
+						}
+					]
+				},
+				"subject": {
+					"reference": "Patient/ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292"
+				},
+				"performer": [
+					{
+						"reference": "Practitioner/123"
+					}
+				],
+				"encounter": {
+					"reference": "Encounter/20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Observation/aching-20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/Observation/headache-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+			"resource": {
+				"resourceType": "Observation",
+				"id": "headache-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+				"text": {
+					"div": "<div class='fhirObservation'><span>Observation</span> - <span>headache</span> : <span>yes</span></div>",
+					"status": "additional"
+				},
+				"effectiveDateTime": "2020-12-09T21:11:57.813Z",
+				"code": {
+					"coding": [
+						{
+							"system": "http://snomed.info/sct",
+							"code": "25064002",
+							"display": "Headache"
+						}
+					]
+				},
+				"status": "preliminary",
+				"valueCodeableConcept": {
+					"coding": [
+						{
+							"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+							"code": "Y",
+							"display": "yes"
+						}
+					]
+				},
+				"subject": {
+					"reference": "Patient/ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292"
+				},
+				"performer": [
+					{
+						"reference": "Practitioner/123"
+					}
+				],
+				"encounter": {
+					"reference": "Encounter/20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Observation/headache-20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/Observation/traveltomalariazone-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+			"resource": {
+				"resourceType": "Observation",
+				"id": "traveltomalariazone-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+				"text": {
+					"div": "<div class='fhirObservation'><span>Observation</span> - <span>travel_to_malaria_zone</span> : <span>yes</span></div>",
+					"status": "additional"
+				},
+				"effectiveDateTime": "2020-12-09T21:11:57.813Z",
+				"code": {
+					"coding": [
+						{
+							"system": "http://hl7.org/fhir/sid/icd-10-cm",
+							"code": "Z779",
+							"display": "travel to malaria zone"
+						}
+					]
+				},
+				"status": "preliminary",
+				"valueCodeableConcept": {
+					"coding": [
+						{
+							"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+							"code": "Y",
+							"display": "yes"
+						}
+					]
+				},
+				"subject": {
+					"reference": "Patient/ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292"
+				},
+				"performer": [
+					{
+						"reference": "Practitioner/123"
+					}
+				],
+				"encounter": {
+					"reference": "Encounter/20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Observation/traveltomalariazone-20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/Observation/wakefulness-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+			"resource": {
+				"resourceType": "Observation",
+				"id": "wakefulness-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+				"text": {
+					"div": "<div class='fhirObservation'><span>Observation</span> - <span>wakefulness</span> : <span>severe</span></div>",
+					"status": "additional"
+				},
+				"effectiveDateTime": "2020-12-09T21:11:57.813Z",
+				"code": {
+					"coding": [
+						{
+							"system": "http://snomed.info/sct",
+							"code": "27625002",
+							"display": "Wakefulness"
+						}
+					]
+				},
+				"status": "preliminary",
+				"valueCodeableConcept": {
+					"coding": [
+						{
+							"system": "http://snomed.info/sct",
+							"code": "89458003",
+							"display": "severe"
+						}
+					]
+				},
+				"subject": {
+					"reference": "Patient/ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292"
+				},
+				"performer": [
+					{
+						"reference": "Practitioner/123"
+					}
+				],
+				"encounter": {
+					"reference": "Encounter/20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Observation/wakefulness-20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/Observation/painwhenmovingneck-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+			"resource": {
+				"resourceType": "Observation",
+				"id": "painwhenmovingneck-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+				"text": {
+					"div": "<div class='fhirObservation'><span>Observation</span> - <span>pain_when_moving_neck</span> : <span>yes</span></div>",
+					"status": "additional"
+				},
+				"effectiveDateTime": "2020-12-09T21:11:57.813Z",
+				"code": {
+					"coding": [
+						{
+							"system": "http://snomed.info/sct",
+							"code": "81680005",
+							"display": "neck pain"
+						}
+					]
+				},
+				"status": "preliminary",
+				"valueCodeableConcept": {
+					"coding": [
+						{
+							"system": "https://fhir.loinc.org/ValueSet/LL3044-6",
+							"code": "Y",
+							"display": "yes"
+						}
+					]
+				},
+				"subject": {
+					"reference": "Patient/ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292"
+				},
+				"performer": [
+					{
+						"reference": "Practitioner/123"
+					}
+				],
+				"encounter": {
+					"reference": "Encounter/20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Observation/painwhenmovingneck-20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/Patient/ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292",
+			"resource": {
+				"resourceType": "Patient",
+				"id": "ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292",
+				"text": {
+					"status": "generated",
+					"div": "<div class='fhirPatient' style='font-size: 16px;font-family: Roboto,sans-serif;line-height: 1.5;box-sizing: inherit;background-repeat: no-repeat;padding: 0;margin: 0;display: block;max-width: 100%;outline:none;text-decoration: none;transition-property: box-shadow,opacity,-webkit-box-shadow;overflow-wrap: break-word;position: relative;white-space: normal;transition: box-shadow.28s cubic-bezier(.4,0,.2,1),-webkit-box-shadow .28s cubic-bezier(.4,0,.2,1);will-change: box-shadow;box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px5px 0 rgba(0,0,0,.12);color: rgba(0,0,0,.87);margin-bottom: 8px!important;background-color: #e1ded4 !important;border-color: #e1ded4 !important;border-radius: 4px;'><div><span style='text-rendering: optimizeLegibility;font-family: Roboto,sans-serif;overflow-wrap: break-word;white-space: normal;font-size: 1.25rem;font-weight: 500;letter-spacing:.0125em;line-height: 2rem;word-break: break-all;color: #424242!important;caret-color: #424242!important;box-sizing: inherit;background-repeat: no-repeat;padding: 0;margin: 0;' ></span></div><hr style='font-size: 16px;font-family: Roboto,sans-serif;line-height: 1.5;overflow-wrap: break-word;white-space: normal;color: rgba(0,0,0,.87);box-sizing: inherit;background-repeat: no-repeat;padding: 0;margin: 0;display: block;max-width: 100%;height: 0;max-height: 0;border: solid;border-width: thin 0 0 0;transition: inherit;border-color:rgba(0,0,0,.12);margin-right: 4px!important;margin-left: 4px!important;'></hr><div><span style='text-rendering: optimizeLegibility;font-family: Roboto,sans-serif;overflow-wrap: break-word;white-space: normal;font-size: .875rem;font-weight: 400;line-height: 1.375rem;letter-spacing: .0071428571em;color: rgba(0,0,0,.6);box-sizing: inherit;background-repeat: no-repeat;padding: 0;margin: 0;'>Patient: </span></div></div>"
+				},
+				"active": true,
+				"gender": "male",
+				"identifier": [
+					{
+						"system": "urn:oid:2.16.840.1.113883.19.5",
+						"type": {
+							"coding": [
+								{
+									"code": "MR",
+									"display": null,
+									"system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+								}
+							]
+						},
+						"use": "usual",
+						"value": ""
+					}
+				],
+				"name": [
+					{
+						"text": ""
+					}
+				],
+				"communication": [
+					{
+						"language": {
+							"coding": [
+								{
+									"system": "urn:ietf:bcp:47",
+									"code": "en-US"
+								}
+							],
+							"text": "en-US"
+						}
+					}
+				]
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Patient/ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/Practitioner/123",
+			"resource": {
+				"resourceType": "Practitioner",
+				"id": "123",
+				"text": {
+					"status": "generated",
+					"div": "<div class='fhirPractitioner' style='font-size: 16px;font-family: Roboto,sans-serif;line-height: 1.5;box-sizing: inherit;background-repeat: no-repeat;padding: 0;margin: 0;display: block;max-width: 100%;outline:none;text-decoration: none;transition-property: box-shadow,opacity,-webkit-box-shadow;overflow-wrap: break-word;position: relative;white-space: normal;transition: box-shadow.28s cubic-bezier(.4,0,.2,1),-webkit-box-shadow .28s cubic-bezier(.4,0,.2,1);will-change: box-shadow;box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px5px 0 rgba(0,0,0,.12);color: rgba(0,0,0,.87);margin-bottom: 8px!important;background-color: #e1ded4 !important;border-color: #e1ded4 !important;border-radius: 4px;'><div><span style='text-rendering: optimizeLegibility;font-family: Roboto,sans-serif;overflow-wrap: break-word;white-space: normal;font-size: 1.25rem;font-weight: 500;letter-spacing:.0125em;line-height: 2rem;word-break: break-all;color: #424242!important;caret-color: #424242!important;box-sizing: inherit;background-repeat: no-repeat;padding: 0;margin: 0;' ></span></div><hr style='font-size: 16px;font-family: Roboto,sans-serif;line-height: 1.5;overflow-wrap: break-word;white-space: normal;color: rgba(0,0,0,.87);box-sizing: inherit;background-repeat: no-repeat;padding: 0;margin: 0;display: block;max-width: 100%;height: 0;max-height: 0;border: solid;border-width: thin 0 0 0;transition: inherit;border-color:rgba(0,0,0,.12);margin-right: 4px!important;margin-left: 4px!important;'></hr><div><span style='text-rendering: optimizeLegibility;font-family: Roboto,sans-serif;overflow-wrap: break-word;white-space: normal;font-size: .875rem;font-weight: 400;line-height: 1.375rem;letter-spacing: .0071428571em;color: rgba(0,0,0,.6);box-sizing: inherit;background-repeat: no-repeat;padding: 0;margin: 0;'>Practitioner: 123</span></div></div>"
+				},
+				"active": true,
+				"identifier": [
+					{
+						"value": "123"
+					}
+				],
+				"name": []
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Practitioner/123"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/MedicationRequest/amoxicillin-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+			"resource": {
+				"resourceType": "MedicationRequest",
+				"id": "amoxicillin-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+				"status": "active",
+				"intent": "proposal",
+				"medicationCodeableConcept": {
+					"coding": [
+						{
+							"display": "amoxicillin"
+						}
+					],
+					"text": "Amoxicillin"
+				},
+				"dosageInstruction": [
+					{
+						"text": "Start  3  dispersible tablet(s) Amoxicillin (250mg)   or 15 ml (250mg / 5ml syrup)    twice per day for 5 days "
+					}
+				],
+				"authoredOn": "2020-12-09T21:11:57.813Z",
+				"subject": {
+					"reference": "Patient/ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292"
+				},
+				"requester": {
+					"reference": "Practitioner/123"
+				},
+				"encounter": {
+					"reference": "Encounter/20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "MedicationRequest/amoxicillin-20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/Location/caffbb91-214f-412e-a7b6-84a845ba2476",
+			"resource": {
+				"resourceType": "Location",
+				"description": "Device-collected geo: up_to_date",
+				"mode": "instance",
+				"position": {
+					"latitude": 43.174984,
+					"longitude": -71.84021
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Location/caffbb91-214f-412e-a7b6-84a845ba2476"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/Encounter/20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+			"resource": {
+				"resourceType": "Encounter",
+				"id": "20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+				"status": "arrived",
+				"text": {
+					"div": "<div class='fhirEncounter'><span>Encounter</span></div>",
+					"status": "additional"
+				},
+				"period": {
+					"start": "2020-12-09T21:11:24.705Z",
+					"end": "2020-12-09T21:11:57.813Z"
+				},
+				"class": {
+					"system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+					"code": "HH",
+					"display": "home health"
+				},
+				"subject": {
+					"reference": "Patient/ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Encounter/20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+			}
+		},
+		{
+			"fullUrl": "https://fhir.thinkmd.tech/CarePlan/malaria",
+			"resource": {
+				"resourceType": "CarePlan",
+				"id": "malaria",
+				"text": {
+					"status": "generated",
+					"div": "<div><p><b>Generated Narrative with Details</b></p><p><b>status</b>: active</p><p><b>intent</b>: order</p>  <p><b>medication</b>: . Generated Summary:  <span>(Details : http://hl7.org/fhir/sid/ndc code ', given as '')</span></p><p><b>subject</b>:   <a></a></p><p><b>reasonCode</b>:  <span>(Details : {SNOMED CT code  = })</span></p></div>"
+				},
+				"status": "active",
+				"intent": "order",
+				"addresses": [
+					{
+						"reference": "Condition/malaria-20f70f54-c2f5-4132-87d1-bab7e1beb8d0",
+						"display": "Reason to admister this CarePlan"
+					}
+				],
+				"activity": [
+					{
+						"detail": {
+							"kind": "MedicationRequest",
+							"code": {
+								"coding": [
+									{
+										"display": "amoxicillin"
+									}
+								]
+							},
+							"status": "in-progress"
+						}
+					},
+					{
+						"detail": {
+							"kind": "Task",
+							"code": {
+								"coding": [
+									{
+										"display": "perform_malaria_test"
+									}
+								]
+							},
+							"description": "Perform rapid test for Malaria",
+							"status": "in-progress"
+						}
+					},
+					{
+						"detail": {
+							"kind": "Task",
+							"code": {
+								"coding": [
+									{
+										"display": "refer"
+									}
+								]
+							},
+							"description": "Refer to Doctor &#x2F; Clinic &#x2F; Hospital",
+							"status": "in-progress"
+						}
+					},
+					{
+						"detail": {
+							"kind": "Task",
+							"code": {
+								"coding": [
+									{
+										"display": "ors_sugar_water"
+									}
+								]
+							},
+							"description": "Encourage Oral Rehydration Solution (ORS) or sugar water",
+							"status": "in-progress"
+						}
+					}
+				],
+				"encounter": {
+					"reference": "Encounter/20f70f54-c2f5-4132-87d1-bab7e1beb8d0"
+				},
+				"subject": {
+					"reference": "Patient/ThinkMD-c1824b54-7b20-46fb-aca8-3a56f5757292"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "CarePlan/malaria"
+			}
+		}
+	]
+}

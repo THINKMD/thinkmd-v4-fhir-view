@@ -8,12 +8,9 @@
 </head>
 <script>
     (async() => {
-        let data = await fetch("fhir_update_6-med4.json")
+        let data = await fetch("fhir_update_8-long.json")
         let fhir = await data.json()
         console.log(fhir)
-        
-        let careTranslations = await fetch("care.json")
-        careTranslations = await careTranslations.json()
 
         // Get start date from the encounter resource: period.start
         let encounterResource = fhir.entry.find(entry => (entry.resource && entry.resource.resourceType === "Encounter"))
@@ -34,6 +31,22 @@
             return fhir.entry.filter(entry => (entry.resource && entry.resource.resourceType === type))
         }
 
+        const newContainer = (title, sub_type, id) => {
+            let div_node = document.createElement("div")
+            div_node.className = "container"
+            document.getElementById("thinkmd-encounter").appendChild(div_node)
+
+            let h2_node = document.createElement("h2")
+            h2_node.innerText = title
+            div_node.appendChild(h2_node)
+
+            let sub_node = document.createElement(sub_type)
+            sub_node.setAttribute("id", id)
+            div_node.appendChild(sub_node)
+
+            return sub_node
+        }
+
         const formatString = (s) => {
             if (typeof s !== 'string') return ''
             s = s.charAt(0).toUpperCase() + s.slice(1)
@@ -44,6 +57,7 @@
         let conditions = getFhirResourcesByType("Condition")
         conditions.forEach(item => {
             try {
+                // placeholder element to extract the html spans
                 let el = document.createElement("toAdd")
                 el.innerHTML = item.resource.text.div
                 let severity = el.children[0].children[2].innerText
@@ -62,7 +76,7 @@
                 document.getElementById("Condition").appendChild(node)
             }
             catch (e) {
-                console.log(`no div info for ${item.resource.id}`)
+                console.log(`error for ${item.resource.id}`)
             }
         })
 
@@ -73,8 +87,7 @@
                 let el = document.createElement("toAdd")
                 el.innerHTML = item.resource.text.div
                 let value = el.children[0].children[2].innerText
-                let rawName = el.children[0].children[1].innerText
-                let name = rawName.match(/[^0-9]+$/)[0]
+                let name = el.children[0].children[1].innerText
 
                 let node = document.createElement("tr")
                 let name_node = document.createElement("td")
@@ -99,75 +112,63 @@
         careplans.forEach(item => {
             if (item.resource.activity) {
                 item.resource.activity.forEach(activity => {
-                    try {
-                        if (activity.detail.kind === "Task") {
-                            careItems.push(activity.detail.code.coding[0].display)
+                    if (activity.detail && activity.detail.kind === "Task") {
+                        /*
+                        some careplan items may not have descriptions
+                        ors_by_mouth is one, because it is technically a med request, but is listed as a care item as well
+                        */
+                        if (activity.detail.description) {
+                            careItems.push(activity.detail.description)
                         }
+                        else console.log("no description of task: ", activity.detail)
                     }
-                    catch (e) { console.log(e) }
+
                 })
             }
         })
-        
+
         if (careItems.length > 0) {
-            careItems = [... new Set(careItems)]
-            
-            let div_node = document.createElement("div")
-            div_node.className = "container"
-            
-            let h2_node = document.createElement("h2")
-            h2_node.innerText = "Careplan"
-            div_node.appendChild(h2_node)
-            let ul_node = document.createElement("ul")
-            ul_node.setAttribute("id", "CarePlan")
-            div_node.appendChild(ul_node)
-            
+            careItems = [...new Set(careItems)]
+
+            let ul_node = newContainer("Careplan", "ul", "CarePlan")
+
             careItems.forEach(item => {
                 let li_node = document.createElement("li")
-                // li_node.innerText = formatString(item)
-                li_node.innerText = careTranslations[item]
+                li_node.innerHTML = item
                 ul_node.appendChild(li_node)
             })
-            
-            document.getElementById("thinkmd-encounter").appendChild(div_node)
+
         }
-        
+
         // Parse Medication Requests
         let meds = getFhirResourcesByType("MedicationRequest")
         if (meds.length > 0) {
-            let div_node = document.createElement("div")
-            div_node.className = "container"
-            
-            let h2_node = document.createElement("h2")
-            h2_node.innerText = "Treatments"
-            div_node.appendChild(h2_node)
-            let ul_node = document.createElement("ul")
-            ul_node.setAttribute("id", "MedicationRequest")
-            div_node.appendChild(ul_node)
-            
+
+            let ul_node = newContainer("Treatments", "ul", "MedicationRequest")
+
             meds.forEach(item => {
                 try {
                     let li_node = document.createElement("li")
-                    let name_node = document.createElement("span")
-                    name_node.innerText = item.resource.medicationCodeableConcept.text + '\n'
-                    name_node.className = "blue-highlight"
+                    let name_node = document.createElement("p")
+                    name_node.innerText = item.resource.medicationCodeableConcept.text
+                    name_node.className = "med-title"
                     li_node.appendChild(name_node)
-                    
-                    let form_node = document.createElement("span")
+
+                    let form_node = document.createElement("p")
                     form_node.innerHTML = item.resource.dosageInstruction[0].text
                     li_node.appendChild(form_node)
-                    
+
                     ul_node.appendChild(li_node)
-                    
-                } catch(e) {
+
+                }
+                catch (e) {
                     console.log(`error with medicationRequest: ${item.resource.id}`, e)
                 }
             })
-            
-            document.getElementById("thinkmd-encounter").appendChild(div_node)
+
         }
-        
-        
+
+
     })()
 </script>
 
@@ -209,7 +210,8 @@
         padding: 8px 15px;
     }
 
-    td:first-child, #CarePlan {
+    td:first-child,
+    #CarePlan {
         color: rgba(0, 0, 0, .6);
     }
 
@@ -225,15 +227,6 @@
         box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
     }
 
-    .container2 {
-        width: 95%;
-        margin: 5px auto;
-        padding: 0 7px;
-        border-radius: 4px;
-        border: 1px solid #e6e6e6;
-        box-shadow: 2px 2px #e6e6e6;
-    }
-
     .severity-moderate {
         color: #ffc300;
     }
@@ -246,8 +239,15 @@
         color: #83d4a3;
     }
 
-    .blue-highlight {
+    .med-title {
+        color: rgba(0, 0, 0, .8);
         background-color: #e0f7fa;
+        padding: 5px;
+    }
+    
+    #MedicationRequest>li>p:nth-child(2) {
+        color: rgba(0, 0, 0, .6);
+        margin: 0 10px;
     }
 
     ul {
