@@ -3,12 +3,12 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> </title>
+    <title>THINKMD Assessment</title>
     <script type="text/javascript" src="parser.js"></script>
 </head>
 <script>
     (async() => {
-        let data = await fetch("fhir_update_8-long.json")
+        let data = await fetch("fhir_update_latest.json")
         let fhir = await data.json()
 
         const getFhirResourcesByType = type => {
@@ -173,7 +173,6 @@
             })
 
         }
-
 
     })()
 </script>
